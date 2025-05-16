@@ -12,7 +12,7 @@ An automated agent that plays Kahoot games by controlling a web browser, extract
 ## Directory Structure
 
 ```
-kahoot_agent/
+kahoot-agent/
 ├── kahoot_agent/
 │   ├── init.py
 │   ├── agent.py
@@ -29,8 +29,8 @@ kahoot_agent/
 ### 1. Clone and Install
 
 ```
-  git clone <>
-  cd kahoot_agent
+  git clone https://github.com/cuongnguyen-kms/kahoot-agent.git
+  cd kahoot-agent
   pip install -r requirements.txt
   playwright install chromium
 ```
