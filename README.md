@@ -11,6 +11,7 @@ An automated agent that plays Kahoot games by controlling a web browser, extract
 
 ## Directory Structure
 
+```
 kahoot_agent/
 ├── kahoot_agent/
 │   ├── init.py
@@ -21,6 +22,7 @@ kahoot_agent/
 ├── requirements.txt
 ├── main.py
 └── README.md
+```
 
 ## Quickstart
 
@@ -73,9 +75,8 @@ The agent will open a browser, join the game, and play automatically!
 
 ## Disclaimer
 
-- This is for educational/demo purposes only. Do not use to disrupt real Kahoot sessions or against terms of service.
+- This is for joining internal TechContest purposes only. Do not use to disrupt real Kahoot sessions or against terms of service.
 - Kahoot’s interface may change; update selectors in `kahoot_agent/selectors.py` as needed.
-- Automated play may be detected or blocked in some situations.
 ---
 
 Made with ❤️ using [LangGraph](https://github.com/langchain-ai/langgraph), [Playwright](https://playwright.dev/python/), and [OpenAI](https://platform.openai.com/docs/api-reference).
