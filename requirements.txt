@@ -1,0 +1,4 @@
+playwright
+openai
+langgraph
+python-dotenv
