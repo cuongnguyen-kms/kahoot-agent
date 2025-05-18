@@ -8,8 +8,8 @@ from kahoot_agent.state import KahootAgentState
 load_dotenv()
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 NICKNAME = os.environ.get("NICKNAME", "AI_Player")
-KAHOOT_URL = os.environ.get("KAHOOT_URL", "https://kahoot.it/?pin=4735348&refer_method=link")
-GPT_MODEL = "gpt-4o-mini"
+KAHOOT_URL = os.environ.get("KAHOOT_URL")
+GPT_MODEL = os.environ.get("GPT_MODEL", "gpt-4o-mini")
 
 async def main():
     agent = build_agent(OPENAI_API_KEY, KAHOOT_URL, GPT_MODEL, NICKNAME)
