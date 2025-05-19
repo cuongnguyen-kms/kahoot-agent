@@ -1,7 +1,7 @@
 import asyncio
 import os
 import httpx
-from typing import TYPE_CHECKING, List, Dict, Any
+from typing import TYPE_CHECKING
 from playwright.async_api import async_playwright
 from openai import AsyncOpenAI
 from langgraph.graph import StateGraph, END
@@ -10,6 +10,7 @@ from .state import KahootAgentState
 from . import selectors
 from .helpers import (
   fetch_image_base64,
+  fetch_images_base64,
   extract_text,
   extract_attribute,
   extract_choices_with_images,
@@ -64,14 +65,7 @@ def build_agent(openai_api_key: str, kahoot_url: str, gpt_model: str, nickname: 
     choices, image_urls = await extract_choices_with_images(answer_buttons)    
     
     # Concurrently fetch images, only if present
-    url_to_base64 = {}
-    if image_urls or question_img_url:
-        fetch_urls = image_urls + ([question_img_url] if question_img_url else [])
-        results = await asyncio.gather(*(fetch_image_base64(u) for u in fetch_urls), return_exceptions=True)
-        for u, b64 in zip(fetch_urls, results):
-            if isinstance(b64, Exception):
-                continue  # if image failed to load, just skip
-            url_to_base64[u] = b64
+    url_to_base64 = await fetch_images_base64(image_urls + [question_img_url] if question_img_url else image_urls)
 
      # Prepare OpenAI multi-modal messages for GPT-4o
     content_blocks = build_gpt_input_blocks(question, question_img_url, choices, url_to_base64)

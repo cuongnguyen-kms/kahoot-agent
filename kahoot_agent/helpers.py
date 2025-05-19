@@ -1,11 +1,13 @@
 import httpx
+import asyncio
 import base64
 from typing import Optional
+from . import selectors
 
+"""
+Fetches an image at the given URL and return its base64-encoded string
+"""
 async def fetch_image_base64(url: str, timeout: float = 2.0) -> Optional[str]:
-  """
-  Fetches an image at the given URL and return its base64-encoded string
-  """
   try:
     async with httpx.AsyncClient(timeout=timeout) as client:
       response = await client.get(url)
@@ -15,6 +17,17 @@ async def fetch_image_base64(url: str, timeout: float = 2.0) -> Optional[str]:
     print(f"Error fetching image: {e}")
     return None
 
+async def fetch_images_base64(urls: list[str]) -> dict[str, str]:
+  url_to_base64 = {}
+  results = await asyncio.gather(
+    *(fetch_image_base64(url) for url in urls),
+    return_exceptions=True
+  )
+  for url, result in zip(urls, results):
+    if not isinstance(result, Exception):
+      url_to_base64[url] = result
+  return url_to_base64
+
 async def extract_text(page, selector: str) -> str:
     el = await page.query_selector(selector)
     return await el.inner_text() if el else ""
@@ -23,7 +36,7 @@ async def extract_attribute(page, selector: str, attr: str) -> Optional[str]:
   el = await page.query_selector(selector)
   return await el.get_attribute(attr) if el else None
 
-async def extract_choices_with_images(buttons) -> Tuple[List[Dict[str, Any]], List[str]]:
+async def extract_choices_with_images(buttons) -> tuple[list[dict[str, any]], list[str]]:
   choices = []
   image_urls = []
   for btn in buttons:
@@ -36,7 +49,7 @@ async def extract_choices_with_images(buttons) -> Tuple[List[Dict[str, Any]], Li
       choices.append({"text": text, "img_url": img_url})
   return choices, image_urls
 
-def build_gpt_input_blocks(question: str, question_img_url: Optional[str], choices: List[Dict[str, Any]], url_to_base64: Dict[str, str]) -> List[Dict[str, Any]]:
+def build_gpt_input_blocks(question: str, question_img_url: Optional[str], choices: list[dict[str, any]], url_to_base64: dict[str, str]) -> list[dict[str, any]]:
   blocks = [{"type": "text", "text": f"Question: {question}"}]
 
   if question_img_url and question_img_url in url_to_base64:
