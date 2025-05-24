@@ -6,3 +6,7 @@ QUESTION_SELECTOR = 'div[class^=\"extensive-question-title\"]'
 QUESTION_IMAGE_SELECTOR = 'div[data-functional-selector*=\"media-container\"] img'
 ANSWER_BUTTONS_SELECTOR = 'button[data-functional-selector^=\"answer-\"]'
 CHOICE_TEXT_SELECTOR = 'div[data-functional-selector*=\"question-choice-text-\"] p'
+GAME_OVER_SELECTOR = [
+  'main[data-functional-selector=\"results-page\"]',
+  'div[class^=\"podium__\"]',
+]
