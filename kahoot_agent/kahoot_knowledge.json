@@ -1,0 +1,242 @@
+[
+  {
+    "id": "kms-anniversary-year-end-party-2024",
+    "title": "KMS 15th Anniversary & Year-end Party",
+    "description": "Official invitation to register for the 15th KMS Anniversary & Year-end Party. A chance to gather, look back at 2023, and celebrate the company’s 15-year milestone.",
+    "date_info": [
+      {
+        "city": "Ho Chi Minh City",
+        "date": "Jan 19, 2024",
+        "location": "Gem Center, District 1"
+      },
+      {
+        "city": "Da Nang City",
+        "date": "Jan 26, 2024",
+        "location": "Mikazuki, Lien Chieu District"
+      }
+    ],
+    "registration_deadline": "Jan 9, 2024, 5 PM",
+    "eligibility": "All KMSers (including those under probation and internship)",
+    "contact": {
+      "name": "Minh Nguyen",
+      "phone_ext": "2298"
+    },
+    "keywords": [
+      "KMS",
+      "anniversary",
+      "year-end party",
+      "registration",
+      "party 2024",
+      "Ho Chi Minh",
+      "Da Nang",
+      "Gem Center",
+      "Mikazuki"
+    ]
+  },
+  {
+    "id": "kms-company-trip-policy",
+    "title": "Company Trip Policy",
+    "description": "Guidelines and eligibility for participation in company trips for team building and bonding.",
+    "eligibility": [
+      "Full-time employees, including those on probation",
+      "Newcomers joining within registration window",
+      "Employees with termination dates within 30 days before the trip are NOT eligible"
+    ],
+    "requirements": [
+      "Registration is mandatory"
+    ],
+    "special_cases": [
+      {
+        "case": "Required to work during trip",
+        "resolution": "Compensated per Overtime policy"
+      },
+      {
+        "case": "Unable to attend for personal reasons",
+        "resolution": "Expected to work regular schedule or take PTO"
+      }
+    ],
+    "keywords": [
+      "company trip",
+      "team building",
+      "eligibility",
+      "overtime",
+      "paid time off",
+      "registration"
+    ]
+  },
+  {
+    "id": "tech-contest-2025",
+    "title": "Tech Contest 2025",
+    "description": "AI agent competitions featuring two different games: Kahoot Race and Rules of Survival.",
+    "games": [
+      {
+        "name": "Kahoot Race",
+        "period": "May 15 - May 28",
+        "goal": "Build an AI agent to play Kahoot automatically, covering registration and gameplay",
+        "features": [
+          "Two rounds, 10 questions each",
+          "Categories: prompt injection, coding, math, recent events, image, internal docs",
+          "Maximize speed for points (single-select <0.5s = 1000 pts)",
+          "Double point question for strategic play"
+        ],
+        "scoring": "Top 3 participants with highest total scores from both rounds"
+      },
+      {
+        "name": "Rules of Survival",
+        "period": "May 29 - Jun 18",
+        "goal": "AI agents act as characters in a 2D survival game with inventory & team mechanics",
+        "features": [
+          "Maximum 5 agents per turn, 20 minutes",
+          "Survive, collect items, and escape island by building a boat",
+          "Item limits and tools (sword, shield)",
+          "Unexpected text events (rewards, storms, hidden events)"
+        ],
+        "scoring": [
+          "Tier 1: Escape order based on completion time",
+          "Tier 2: Only those finishing boat building get points"
+        ]
+      }
+    ],
+    "final_score_formula": "Sum of ranking scores from both games (Game 1: #1-120pts ... Game 2: #1-150pts ...)",
+    "contact": {
+      "name": "Quyen Chung",
+      "phone_ext": "2009"
+    },
+    "keywords": [
+      "tech contest",
+      "AI agent",
+      "Kahoot",
+      "survival game",
+      "points",
+      "leaderboard",
+      "2025"
+    ]
+  },
+  {
+    "id": "learning-organizational-development",
+    "title": "Learning & Organizational Development (L&OD) Hub",
+    "description": "Comprehensive information and resources about career growth, technical, soft skills, and compliance at KMS.",
+    "sections": [
+      {
+        "name": "Organizational Development",
+        "info": "Focuses on career advancement with Career Guidebook for Development, Testing, BA, Management tracks"
+      },
+      {
+        "name": "Learning & Development",
+        "subsections": [
+          {
+            "name": "E-Learning Corner",
+            "resources": ["Coursera Account", "Coursera Learning Path", "ELSA"]
+          },
+          {
+            "name": "Soft Skills Corner",
+            "resources": ["English Compliance", "Soft Skill Sharing"]
+          },
+          {
+            "name": "Technical Skills Corner",
+            "resources": ["Guild Activities", "Project Case Study", "Certificate Reimbursement", "SEFT", "Management Cert Requirement"]
+          },
+          {
+            "name": "Compliance Training",
+            "resources": []
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "email": "kmssoftware-lod@kms-technology.com",
+      "person": "Vy P Nguyen",
+      "personal_email": "vypnguyen@kms-technology.com"
+    },
+    "keywords": [
+      "learning",
+      "organizational development",
+      "career guidebook",
+      "e-learning",
+      "soft skills",
+      "technical skills",
+      "compliance",
+      "KMS"
+    ]
+  },
+  {
+    "id": "ooo-relay-q1-2023",
+    "title": "OoO Relay Q1/2023 - GOT IT! TIME MAKES HEROES!",
+    "description": "Adventure relay event for KMSers in HCMC and Danang. Compete in team activities such as Combat Archery and Jungle challenges.",
+    "activities": [
+      {
+        "city": "HCM",
+        "name": "Combat Archery",
+        "description": "Adrenaline rush activity with dodging, target shooting, and team battles.",
+        "time": "8:00 - 12:00, Mar 25, 2023",
+        "location": "1017 Binh Quoi, W.27, Binh Thanh Dist."
+      },
+      {
+        "city": "Da Nang",
+        "name": "Heroes of The Jungle",
+        "description": "Team adventure in nature with challenges.",
+        "time": "5:30 - 16:00, Apr 1, 2023",
+        "location": "Bach Ma National Park, Thua Thien Hue"
+      }
+    ],
+    "prizes": "Top 3 teams in HCMC, Top 2 in Danang, 7M VND total prize + cool gifts for all",
+    "contact": [
+      {"name": "Minh Nguyen", "phone_ext": "2298"},
+      {"name": "Quyen Chung", "phone_ext": "2009"},
+      {"email": "ss-communications@kms-technology.com"}
+    ],
+    "keywords": [
+      "OoO Relay",
+      "GOT IT",
+      "time makes heroes",
+      "combat archery",
+      "jungle challenge",
+      "team building",
+      "events"
+    ]
+  },
+  {
+    "id": "company-trip-2024-dalat",
+    "title": "Company Trip 2024: Dalat Remastered",
+    "description": "Information and registration details for the 2024 KMS Company Trip in Dalat. Emphasis on team bonding and memorable experiences.",
+    "registration": {
+      "deadline": "1 PM on Oct 24, 2024"
+    },
+    "trip_info": {
+      "depart": "Evening, Nov 27",
+      "return": "1:30 PM, Nov 30",
+      "duration": "3 days, 3 nights",
+      "hotel": "Terracotta Hotel & Resort, Dalat",
+      "transportation": [
+        "HCM-Dalat: Sleeper Buses",
+        "DN-Dalat: Flight (depart), Sleeper Buses (return)"
+      ]
+    },
+    "agenda_image_caption": "Summary of trip itinerary for Danang & HCMC teams.",
+    "accommodation_details": "Terracotta Hotel & Resort is located by Tuyen Lam lake, 6km from Dalat city. Combines modern architecture and natural scenery for a relaxing experience.",
+    "faq_topics": [
+      "Eligibility",
+      "Compensation for illness/surgery",
+      "Participation of interns/contractors",
+      "Family/relatives attendance",
+      "Cancellation policy",
+      "Pregnancy",
+      "Early/late check-in/out",
+      "Paid hotel services",
+      "Parking",
+      "Spouse participation",
+      "Onsite/requested work handling",
+      "Remote/home mode transportation",
+      "Non-paid leave eligibility",
+      "Joining with other business lines",
+      "Recent transfers between business lines",
+      "Leave requirement for non-participation"
+    ],
+    "contact_organizer": {
+      "email": "kmssoftware-oc@kms-technology.com",
+      "chats": [
+        {"name": "Quyen Chung", "id": "2009"}
+      ]
+    }
+  }
+]

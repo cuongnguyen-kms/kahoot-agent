@@ -2,3 +2,4 @@ playwright
 openai
 langgraph
 python-dotenv
+sentence-transformers
