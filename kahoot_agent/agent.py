@@ -22,19 +22,50 @@ if TYPE_CHECKING:
     from playwright.async_api import Browser, Page
 
 # ---- Agent Building ----
-def build_react_agent(openai_api_key: str, tools: list, gpt_model: str = "gpt-4o-mini", system_prompt_override: str = None):
+def build_react_agent(
+    openai_api_key: str,
+    tools: list,
+    gpt_model: str = "gpt-4o-mini",
+    system_prompt_override: str = None,
+    use_azure: bool = False,
+    azure_endpoint: str = None,
+    azure_deployment: str = None,
+    azure_api_version: str = None
+):
     """
-    Build a React agent using LangGraph's prebuilt create_react_agent, with provided tools and OpenAI model.
+    Build a React agent using LangGraph's prebuilt create_react_agent, with provided tools and OpenAI or Azure OpenAI model.
     Optionally override the default system prompt.
+    Set use_azure=True and provide azure_endpoint, azure_deployment, azure_api_version for Azure OpenAI.
     """
-    llm = ChatOpenAI(api_key=openai_api_key, model=gpt_model)
+    if use_azure:
+        llm = ChatOpenAI(
+            api_key=openai_api_key,
+            azure_endpoint=azure_endpoint,
+            azure_deployment=azure_deployment or gpt_model,
+            api_version=azure_api_version or "2024-02-15-preview",
+            model=gpt_model,
+        )
+    else:
+        llm = ChatOpenAI(api_key=openai_api_key, model=gpt_model)
     agent = create_react_agent(llm, tools)
     return agent
 
 # --- Kahoot game loop using React agent ---
-async def kahoot_game_loop_with_react_agent(openai_api_key: str, kahoot_url: str, gpt_model: str, nickname: str, tools: list, system_prompt_override: str = None):
+async def kahoot_game_loop_with_react_agent(
+    openai_api_key: str,
+    kahoot_url: str,
+    gpt_model: str,
+    nickname: str,
+    tools: list,
+    system_prompt_override: str = None,
+    use_azure: bool = False,
+    azure_endpoint: str = None,
+    azure_deployment: str = None,
+    azure_api_version: str = None
+):
     """
     Main Kahoot game loop using the React agent for answering questions.
+    Supports Azure OpenAI if use_azure and Azure params are provided.
     """
     playwright = await async_playwright().start()
     browser = await playwright.chromium.launch(headless=False)
@@ -45,7 +76,16 @@ async def kahoot_game_loop_with_react_agent(openai_api_key: str, kahoot_url: str
     print(f"[*] Joined game as {nickname}")
 
     # Build React agent with system prompt
-    agent = build_react_agent(openai_api_key, tools, gpt_model, system_prompt_override)
+    agent = build_react_agent(
+        openai_api_key,
+        tools,
+        gpt_model,
+        system_prompt_override,
+        use_azure=use_azure,
+        azure_endpoint=azure_endpoint,
+        azure_deployment=azure_deployment,
+        azure_api_version=azure_api_version
+    )
 
     # Main loop: wait for questions and answer
     while True:
