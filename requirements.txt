@@ -3,3 +3,5 @@ openai
 langgraph
 python-dotenv
 sentence-transformers
+pytesseract
+Pillow
