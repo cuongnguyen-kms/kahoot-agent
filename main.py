@@ -19,12 +19,21 @@ USE_AZURE = os.environ.get("AZURE_OPENAI", "false").lower() == "true"
 AZURE_ENDPOINT = os.environ.get("AZURE_OPENAI_ENDPOINT")
 AZURE_DEPLOYMENT = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
 AZURE_API_VERSION = os.environ.get("AZURE_OPENAI_API_VERSION", "2024-02-15-preview")
+AZURE_API_KEY = os.environ.get("AZURE_OPENAI_API_KEY")
 
 tools = [read_external_file, search_knowledge, ocr_image_tool, search_recent_news]  # Added search_recent_news tool
 
 async def main():
+    # Validate API key availability
+    api_key = AZURE_API_KEY if USE_AZURE else OPENAI_API_KEY
+    if not api_key:
+        raise ValueError(f"{'AZURE_OPENAI_API_KEY' if USE_AZURE else 'OPENAI_API_KEY'} environment variable is not set")
+    
+    if USE_AZURE and not AZURE_ENDPOINT:
+        raise ValueError("AZURE_OPENAI_ENDPOINT environment variable is required when using Azure OpenAI")
+    
     await kahoot_game_loop_with_react_agent(
-        OPENAI_API_KEY,
+        api_key,
         KAHOOT_URL,
         GPT_MODEL,
         NICKNAME,
